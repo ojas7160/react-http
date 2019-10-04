@@ -4,6 +4,7 @@ import Posts from './Posts/Posts';
 import './Blog.css';
 import { Route, NavLink } from 'react-router-dom';
 import NewPost from '../../containers/Blog/NewPost/NewPost';
+import FullPost from '../../containers/Blog/FullPost/FullPost';
 
 
 class Blog extends Component {
@@ -37,8 +38,10 @@ class Blog extends Component {
                 </header>
                 {/* <Route path="/" exact render={() => <h1>home</h1>} /> */}
                 {/* exact is for the exact route matching components only */}
+                {/* routing must be defined in specific order because router parse this from top to bottom */}
                 <Route path="/" exact component={Posts}/>
                 <Route path="/new-post" component={NewPost}/>
+                <Route path="/:id" component={FullPost}/>
                 {/* exact is not mentioned in new-post route because we want to access other pages starting with slash(/) like /new-post-1 */}
             </div>
         );
